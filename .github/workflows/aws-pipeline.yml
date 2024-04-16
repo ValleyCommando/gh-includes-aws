@@ -1,6 +1,8 @@
 name: 'Terraform Deploy'
 
 on: [pull_request]
+env:
+GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 defaults:
       run:
         shell: bash
