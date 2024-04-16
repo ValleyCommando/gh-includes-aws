@@ -1,8 +1,6 @@
 name: 'Terraform Deploy'
 
 on: [pull_request]
-env:
-GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 defaults:
       run:
         shell: bash
@@ -18,8 +16,8 @@ jobs:
       - name: merge pull requests (automerge-action)
         uses: pascalgn/automerge-action@v0.16.3
         id: merge
-        with:
-          github_token: ${{ github.token }}
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           source: 'dev'
           target: 'main'
       - name: AWS Creds
